@@ -2,7 +2,7 @@
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
     <xacro:property name="M_PI" value="3.1415926535897931" />
-
+  
     <!--
      The asus_camera_model macro only adds the model, it does not also add
      the openni gazebo plugin. See the 'asus_camera' macro below for that
@@ -13,7 +13,7 @@
         <parent link="${parent}"/>
         <child link="${name}_link"/>
       </joint>
-
+      
       <link name="${name}_link">
         <inertial>
           <mass value="0.200" />
@@ -26,7 +26,7 @@
             <mesh filename="package://hector_sensors_description/meshes/asus_camera/asus_camera_simple.dae"/>
           </geometry>
         </visual>
-       <!--
+       <!--        
        <collision>
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry>
@@ -93,8 +93,8 @@
           <horizontal_fov>${62.8 * M_PI/180.0}</horizontal_fov>
           <image>
             <format>R8G8B8</format>
-            <width>640</width>
-            <height>480</height>
+            <width>800</width>
+            <height>600</height>
           </image>
           <clip>
             <near>${min_range}</near>
@@ -108,18 +108,9 @@
           <depthImageCameraInfoTopicName>${name}/depth/camera_info</depthImageCameraInfoTopicName>
           <pointCloudTopicName>${name}/depth/points</pointCloudTopicName>
           <frameName>${name}_depth_optical_frame</frameName>
-          <baseline>0.1</baseline>
-          <distortionK1>0.044919369433237377</distortionK1>
-          <distortionK2>-0.12050496756849757</distortionK2>
-          <distortionK3>-0.0003381957094652146</distortionK3>
-          <distortionT1>-0.0000013530127177407497</distortionT1>
-          <distortionT2>-0.079217425392206539</distortionT2>
-          <Cx>312.13977803814191</Cx>
-          <Cy>236.00143246758819</Cy>
-          <focalLength>535.51210594649353</focalLength>
         </plugin>
       </sensor>
     </gazebo>
   </xacro:macro>
-</robot>
+  </robot>
   
